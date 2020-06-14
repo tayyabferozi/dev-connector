@@ -23,7 +23,7 @@ const profileSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  skils: {
+  skills: {
     type: [String],
     required: true
   },
@@ -68,9 +68,9 @@ const profileSchema = mongoose.Schema({
       school: {
         type: String,
         required: true
-      }, 
+      },
       degree: {
-        type: String 
+        type: String
       },
       study: {
         type: String
@@ -81,19 +81,20 @@ const profileSchema = mongoose.Schema({
       to: {
         type: String
       },
+      fieldofstudy: {
+        type: String
+      },
       current: {
         type: Boolean,
         default: false
       },
-      description: {
-        type: String
-      }
+      description: String
     }
   ],
   social: {
     youtube: {
       type: String
-    }, 
+    },
     twitter: {
       type: String
     },

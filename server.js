@@ -11,16 +11,19 @@ const app = express();
 
 const db = require("./config/keys").mongoURI;
 
-
 // bodyParser middleware
 
-app.use(bodyParser.urlencoded({ extended:false }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // DB Config
 
 mongoose
-  .connect(db, { useNewUrlParser:true, useUnifiedTopology:true })
+  .connect(db, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false
+  })
   .then(() => console.log("Connected to MonogoDB"))
   .catch(err => console.log(err));
 
@@ -42,7 +45,7 @@ app.use("/api/posts", posts);
 
 // Handling 404
 
-app.use((req, res) => res.json({msg: "404 Not Found"}));
+app.use((req, res) => res.json({ msg: "404 Not Found" }));
 
 // Make the server Up and running
 
